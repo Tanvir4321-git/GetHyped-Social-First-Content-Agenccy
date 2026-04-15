@@ -5,7 +5,7 @@ import About from './Component/About';
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-[#faf4ec]'>
       <Navbar></Navbar>
       <main className='bg-[#faf4ec]'>
 <HeroSection></HeroSection>

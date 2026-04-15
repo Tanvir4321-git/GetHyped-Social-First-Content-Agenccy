@@ -8,9 +8,9 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
-       <nav className='bg-[#faf4ec]'>
+       <nav className=' sticky top-0 z-50'>
 
-    <div className='sticky  max-w-345 mx-auto h-22.5 px-4.25 md:px-7.5 py-6 flex justify-between items-center'>
+    <div className='  max-w-345 mx-auto h-22.5 px-4.25 md:px-7.5 py-6 flex justify-between items-center'>
 
         {/* Logo */}
         <div>
