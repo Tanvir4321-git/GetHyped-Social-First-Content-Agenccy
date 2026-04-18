@@ -5,6 +5,7 @@ import About from './Component/About';
 import Slider from './Component/Slider';
 import Content from './Component/Content';
 import BrandHyped from './Component/BrandHyped';
+import Footer from './Component/Footer';
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
         <Content></Content>
         <BrandHyped></BrandHyped>
       </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 };
