@@ -4,108 +4,105 @@ import { NavLink } from 'react-router';
 import { GrClose } from "react-icons/gr";
 import { AnimatePresence, motion } from 'framer-motion';
 import { BsFire } from "react-icons/bs";
+import logo from '../assets/logo.png'
+
+const NAV_LINKS = [
+    { label: 'Expertises', href: '/expertises' },
+    { label: 'Work', href: '/work' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+];
+
 const Navbar = () => {
+
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
-       <nav className=' sticky top-0 z-50'>
+        <nav className=' sticky top-0 z-50'>
 
-    <div className='  max-w-360 mx-auto h-22.5 px-4.25 md:px-7.5 py-6 flex justify-between items-center'>
+            <div className='  max-w-360 mx-auto h-22.5 px-4.25 md:px-7.5 py-6 flex justify-between items-center'>
 
-        {/* Logo */}
-        <div>
-            <svg className='md:w-32.25 md:h-14.25 w-24.75 h-10' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 84" fill="none"><path d="M207.793 18.4091V68.8219C207.793 77.2049 200.998 84 192.615 84H7.46524C3.34207 84 0 80.6579 0 76.5348V37.5951C0 33.8732 2.69331 30.6933 6.36831 30.0829L186.384 0.251801C197.596 -1.60491 207.793 7.04266 207.793 18.4049" fill="#FAF4EC"></path><path d="M188.876 80.0646H55.9061V25.8317L186.618 5.34814C195.454 3.96521 203.444 10.7945 203.444 19.7408V65.4969C203.444 73.5427 196.922 80.0646 188.876 80.0646Z" fill="black"></path><path d="M71.2635 26.8177V47.2585L67.5415 47.5957V27.3683L59.9312 28.4866V76.7781L67.5415 76.7055V56.478L71.2635 56.2305V76.6714L79.3818 76.5945V25.6226L71.2635 26.8177Z" fill="white"></path><path d="M94.7092 23.3646L92.5452 42.7512L92.4427 44.4116L92.2378 44.4329L92.1354 42.7939L90.0055 24.0561L81.2256 25.3494L87.9482 58.2622V76.5134L96.8391 76.4323V57.75L104.142 21.9731L94.7092 23.3646Z" fill="white"></path><path d="M159.835 25.0207V13.7695L135.377 17.3719V76.0695L159.835 75.839V64.5921L147.179 65.0274V51.2238L159.101 50.4384V39.2854L147.179 40.3695V26.5701L159.835 25.0207Z" fill="white"></path><path d="M120.844 48.8506L116.226 49.2006V29.3018L120.844 28.7256V48.8506ZM105.943 21.7085V76.347L116.149 76.2488V58.5396L120.882 58.2878C127.071 57.9591 131.92 52.8457 131.92 46.6482V31.3805C131.92 24.2695 125.603 18.8146 118.565 19.8518L105.943 21.7128V21.7085Z" fill="white"></path><path d="M182.598 64.7713L176.494 64.9677V21.7768L182.598 21.0128V64.7713ZM162.993 13.3042V75.8091L185.769 75.5957C192.163 75.536 197.315 70.3372 197.315 63.9433V21.7469C197.315 14.636 190.998 9.18108 183.959 10.2183L162.989 13.3085L162.993 13.3042Z" fill="white"></path><path d="M21.5464 80.0646H34.7482V70.4738L27.1336 70.6957V59.8585L34.2873 59.4018V49.8835L27.1336 50.5494V39.7079L34.7482 38.739V29.1481L21.5464 31.214V80.0646Z" fill="black"></path><path d="M36.7714 28.828V38.4829L42.03 37.8128V80.0646H48.3812V37.0061L54.0239 36.289V26.1262L36.7714 28.828Z" fill="black"></path><path d="M14.2348 51.7488V41.2829L8.49394 42.0128V71.5152L14.2348 71.3488V62.6969L10.7092 62.8976V54.5146L19.5616 53.7634V80.0604H14.2391V77.3159L13.3128 78.225C12.1134 79.4031 10.5 80.0604 8.8226 80.0604H7.90491C5.48905 80.0604 3.53418 78.1012 3.53418 75.6896V39.0207C3.53418 36.1524 5.62563 33.7067 8.45978 33.2628L14.5165 32.3152C17.1671 31.9012 19.5659 33.95 19.5659 36.6305V51.2494L14.2433 51.7445L14.2348 51.7488Z" fill="black"></path></svg>
-        </div>
+                {/* Logo */}
+                <div>
+                    <img className='md:w-32.25 md:h-14.25 w-24.75 h-10' src={logo} alt="logo" />
+                </div>
 
-        {/* Menu - desktop only */}
-        <div className='hidden md:flex bg-white p-1.5 rounded-lg justify-between items-center gap-2.5'>
-            <a class="menu-item" href="/expertises">
-                <span class="swoosh-bg">
-                    <span class="swoosh-layer layer-orange"></span>
-                    <span class="swoosh-layer layer-black"></span>
-                </span>
-                <span class="menu-text">Expertises</span>
-            </a>
+                {/* Menu - desktop only */}
+                <div className="hidden md:flex bg-white p-1 rounded-xl justify-between items-center gap-1.5">
+                    {NAV_LINKS.map(({ label, href }) => (
+                        <a key={href} className="menu-item" href={href}>
+                            <span className="swoosh-bg">
+                                <span className="swoosh-layer layer-orange" />
+                                <span className="swoosh-layer layer-black" />
+                            </span>
+                            <span className="menu-text">{label}</span>
+                        </a>
+                    ))}
+                </div>
 
-            <a class="menu-item" href="/work">
-                <span class="swoosh-bg">
-                    <span class="swoosh-layer layer-orange"></span>
-                    <span class="swoosh-layer layer-black"></span>
-                </span>
-                <span class="menu-text">Work</span>
-            </a>
+                {/* Button - desktop only */}
 
-            <a class="menu-item" href="/about">
-                <span class="swoosh-bg">
-                    <span class="swoosh-layer layer-orange"></span>
-                    <span class="swoosh-layer layer-black"></span>
-                </span>
-                <span class="menu-text">About</span>
-            </a>
+                <div className='hidden md:block'>
+                    <button className="flex items-center gap-2 bg-[#fcb8fa] rounded-lg p-1.5 text-[15px] font-semibold text-[#161616] cursor-pointer hover:-rotate-6 hover:scale-105 transition-transform duration-300 ease-in-out">
+                        Get Results
+                        <span className="flex items-center justify-center w-7.5 h-7.5 bg-white rounded-lg">
 
-            <a class="menu-item" href="/contact">
-                <span class="swoosh-bg">
-                    <span class="swoosh-layer layer-orange"></span>
-                    <span class="swoosh-layer layer-black"></span>
-                </span>
-                <span class="menu-text">Contact</span>
-            </a>
-        </div>
+                            <BsFire className='transform scale-x-[-1] text-[#fa5424]' size={16} />
 
-        {/* Button - desktop only */}
+                        </span>
+                    </button>
+                </div>
 
-        <div className='hidden md:block'>
-            <button className="flex items-center gap-2 bg-[#fcb8fa] rounded-lg p-1.5 text-[15px] font-semibold text-[#161616] cursor-pointer hover:-rotate-6 hover:scale-105 transition-transform duration-300 ease-in-out">
-                Get Results
-                <span className="flex items-center justify-center w-7.5 h-7.5 bg-white rounded-lg">
+                {/* Hamburger - mobile only */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={menuOpen}
+                    className={`md:hidden flex flex-col justify-center gap-1.5 z-50 items-center ${menuOpen ? 'bg-white' : 'bg-[#fcb8fa]'} w-9 h-9 rounded-sm cursor-pointer border-none`}
 
-                    <BsFire className='transform scale-x-[-1] text-[#fa5424]'  size={16}/>
-                  
-                </span>
-            </button>
-        </div>
-
-        {/* Hamburger - mobile only */}
-        <button
-            className={`md:hidden flex flex-col justify-center gap-1.5 z-50 items-center ${menuOpen ? 'bg-white' : 'bg-[#fcb8fa]'} w-9 h-9 rounded-sm cursor-pointer border-none`}
-            onClick={() => setMenuOpen(!menuOpen)}
-        >
-            {menuOpen ? <GrClose size={20}/> : <>
-                <span className="block w-5 h-0.5 bg-[#161616] rounded" />
-                <span className="block w-5 h-0.5 bg-[#161616] rounded" />
-            </>}
-        </button>
-
-    </div>
-
-    {/* Mobile menu */}
-    <AnimatePresence>
-        {menuOpen && (
-            <motion.div
-                initial={{ opacity: 0, y: -16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ type: 'tween', stiffness: 500, damping: 22 }}
-                className='md:hidden bg-[#fcb8fa] rounded-2xl mx-4 mb-4 p-5 flex flex-col items-center gap-2'
-            >
-                <a href="/expertises" className=' text-center px-4 py-2 bg-white rounded-2xl text-[25px] font-semibold text-[#161616]'>Expertises</a>
-                <a href="/work"       className=' text-center px-4 py-2 bg-white rounded-2xl text-[25px] font-semibold text-[#161616]'>Work</a>
-                <a href="/about"      className=' text-center px-4 py-2 bg-white rounded-2xl text-[25px] font-semibold text-[#161616]'>About</a>
-                <a href="/contact"    className=' text-center px-4 py-2 bg-white rounded-2xl text-[25px] font-semibold text-[#161616]'>Contact</a>
-
-                <button className="mt-1 flex items-center justify-center gap-2 bg-[#161616] rounded-xl p-1.5 text-[20px] font-bold text-white cursor-pointer">
-                    Get Results
-                    <span className="flex items-center justify-center w-9 h-9 bg-white rounded-lg">
-
-                            <BsFire className='transform scale-x-[-1] text-[#fa5424]'  size={16}/>
-                        
-                    </span>
+                >
+                    {menuOpen ? <GrClose size={20} /> : <>
+                        <span className="block w-5 h-0.5 bg-[#161616] rounded" />
+                        <span className="block w-5 h-0.5 bg-[#161616] rounded" />
+                    </>}
                 </button>
-            </motion.div>
-        )}
-    </AnimatePresence>
 
-</nav>
+            </div>
+
+            {/* Mobile menu */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -200 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -16 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 22 }}
+                        className='md:hidden bg-[#fcb8fa] rounded-2xl mx-4 mb-4 p-5 flex flex-col items-center gap-2'
+                    >
+                        {NAV_LINKS.map(({ label, href }) => (
+
+                            <a key={href}
+                                href={href}
+                                onClick={() => setMenuOpen(false)}
+                                className="text-center px-4 py-2 bg-white rounded-2xl text-[25px] font-semibold text-[#161616]"
+                            >
+                                {label}
+                            </a>
+                        ))}
+
+                        <button className="mt-1 flex items-center justify-center gap-2 bg-[#161616] rounded-xl p-1.5 text-[20px] font-bold text-white cursor-pointer">
+                            Get Results
+                            <span className="flex items-center justify-center w-9 h-9 bg-white rounded-lg">
+
+                                <BsFire className='transform scale-x-[-1] text-[#fa5424]' size={16} />
+                            </span>
+                        </button>
+
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+        </nav >
     );
 };
 
