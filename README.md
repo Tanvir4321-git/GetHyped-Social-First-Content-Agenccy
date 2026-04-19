@@ -1,16 +1,58 @@
-# React + Vite
+Get Hyped - Social First Content Agenccy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The purpose of this project is to recreate a high-performance digital agency landing page with pixel-perfect accuracy. By replicating the Get Hyped website, I focused on mastering professional-grade animations and complex layouts.
 
-Currently, two official plugins are available:
+This project demonstrates my ability to integrate multiple animation libraries like GSAP and Framer Motion to achieve a smooth, premium user experience that matches industry leaders.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 Live Demo
+https://gethyped-social-first-content-agency.netlify.app/
 
-## React Compiler
+🛠️ Technologies Used
+Frontend: React.js (Vite)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Styling: Tailwind CSS
 
-## Expanding the ESLint configuration
+Core Animations: GSAP (GreenSock Animation Platform)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Interaction: Framer Motion (for stickers and layout transitions)
+
+Icons: React Icons
+
+Deployment: Netlify
+
+🚀 Key Features
+GSAP Powered Slider: Implemented a high-performance, smooth-sliding carousel/slider using GSAP to match the original's premium feel.
+
+Pixel-Perfect Recreation: Meticulously matched typography, spacing, and color palettes through detailed CSS auditing.
+
+Sticker Trail Animation: An interactive mouse-follow effect in the footer built with React state and Framer Motion.
+
+Infinite Brand Loop: A seamless, non-stop marquee for brand logos ensuring high performance and zero lag.
+
+Dynamic Hover States: Complex "Swoosh" background animations on buttons and menu items using custom CSS and Tailwind.
+
+Responsive Architecture: Fully fluid layout that preserves design integrity from mobile screens to 4K monitors.
+
+📦 Major NPM Packages
+gsap - For robust, timeline-based slider animations.
+
+framer-motion - Used for layout-level entrance animations and interactive stickers.
+
+react-icons - For consistent and scalable vector icons.
+
+react-fast-marquee - For the smooth scrolling brand section.
+
+▶️ Getting Started
+Clone the Repository:
+
+Bash
+git clone https://github.com/Tanvir4321-git/GetHyped-Social-First-Content-Agenccy.git
+cd get-hyped-clone
+Install Dependencies:
+
+Bash
+npm install
+Start the Development Server:
+
+Bash
+npm run dev
