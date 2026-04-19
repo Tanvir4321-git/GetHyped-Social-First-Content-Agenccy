@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="cover g.png" alt="MERN Stack Developer Banner" width="100%">
+</p>
+
 Get Hyped - Social First Content Agenccy
 
 The purpose of this project is to recreate a high-performance digital agency landing page with pixel-perfect accuracy. By replicating the Get Hyped website, I focused on mastering professional-grade animations and complex layouts.
